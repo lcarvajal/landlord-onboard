@@ -29,7 +29,7 @@ Run `npm run test`.
 
 ## Todo list
 
-- [ ] Sign up / login
+- [ x ] Sign up / login
 - [ ] Apartments overview page
 - [ ] Add apartment flow
 - [ ] Search / filter apartments
