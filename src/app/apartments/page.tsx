@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 interface Apartment {
   id: number;
   name: string;
@@ -110,10 +112,12 @@ export default function Home() {
           </div>
         ))}
         <div key={mockApartments.length} className="flex border-2 border-gray-200 rounded-xl overflow-hidden aspect-square items-center justify-center">
-          <div className="text-white text-center transform -translate-y-4">
-            <h1 className="text-9xl">+</h1>
-            <h1 className="text-xl">New listing</h1>
-          </div>
+          <Link href="/apartments/new">
+            <div className="text-white text-center transform -translate-y-4">
+              <h1 className="text-9xl">+</h1>
+              <h1 className="text-xl">New listing</h1>
+            </div>
+          </Link>
         </div>
       </div>
     </main>
