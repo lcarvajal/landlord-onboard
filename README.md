@@ -21,6 +21,12 @@ NEXT_PUBLIC_SUPABASE_URL=
 NEXT_PUBLIC_SUPABASE_ANON_KEY=
 ```
 
+## Testing
+- Jest
+- React Testing Library
+
+Run `npm run test`.
+
 ## Todo list
 
 - [ ] Sign up / login
