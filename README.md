@@ -12,10 +12,24 @@ A website for landlords to upload apartments with rooms to rent.
 ## Setup
 
 1. `npm run dev`
+2. Create a `.env.local` file and set values
+
+### Env file
+
+```
+NEXT_PUBLIC_SUPABASE_URL=
+NEXT_PUBLIC_SUPABASE_ANON_KEY=
+```
+
+## Testing
+- Jest
+- React Testing Library
+
+Run `npm run test`.
 
 ## Todo list
 
-- [ ] Sign up / login
+- [ x ] Sign up / login
 - [ ] Apartments overview page
 - [ ] Add apartment flow
 - [ ] Search / filter apartments
