@@ -89,7 +89,7 @@ const mockApartments: Apartment[] = [
   }
 ]
 
-export default function Home() {
+export default function Apartments() {
 
   return (
     <main className="container mx-auto flex flex-col items-center h-screen w-screen">
