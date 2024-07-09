@@ -40,6 +40,52 @@ const mockApartments: Apartment[] = [
         imageURL: "https://via.placeholder.com/150",
       }
     ]
+  },
+  {
+    id: 2,
+    name: "Apartment 1",
+    location: "Vienna, Austria",
+    price: 100,
+    imageURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTObXdJytVLoBt-NHn1FQ0TmYolYopCq3hAJw&s",
+    rooms: [
+      {
+        id: 1,
+        name: "Room 1",
+        size: 20,
+        equipment: "Fridge, TV",
+        imageURL: "https://via.placeholder.com/150",
+      },
+      {
+        id: 2,
+        name: "Room 2",
+        size: 30,
+        equipment: "Fridge, TV, AC",
+        imageURL: "https://via.placeholder.com/150",
+      }
+    ]
+  },
+  {
+    id: 3,
+    name: "Apartment 1",
+    location: "Vienna, Austria",
+    price: 100,
+    imageURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTObXdJytVLoBt-NHn1FQ0TmYolYopCq3hAJw&s",
+    rooms: [
+      {
+        id: 1,
+        name: "Room 1",
+        size: 20,
+        equipment: "Fridge, TV",
+        imageURL: "https://via.placeholder.com/150",
+      },
+      {
+        id: 2,
+        name: "Room 2",
+        size: 30,
+        equipment: "Fridge, TV, AC",
+        imageURL: "https://via.placeholder.com/150",
+      }
+    ]
   }
 ]
 
@@ -47,13 +93,13 @@ export default function Home() {
 
   return (
     <main className="container mx-auto flex flex-col items-center h-screen w-screen">
-      <div className="p-6">
-        <h1 className="text-3xl font-medium">Listings</h1>
+      <div className="w-full p-6">
+        <h1 className="text-4xl font-medium">Your Listings</h1>
       </div>
-      <div className="grow w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 bg-green-100">
+      <div className="p-6 grow w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {mockApartments.map(apartment => (
           <div key={apartment.id}>
-            <div className="image-container relative sm:rounded-xl overflow-hidden aspect-square">
+            <div className="image-container relative rounded-xl overflow-hidden aspect-square">
               <img className="h-full w-full object-cover" src={apartment.imageURL} />
               <div className="text-overlay absolute left-0  top-0 bottom-0 right-0 shadow-[inset_0_0_4em_0.8em_rgba(0,0,0,0.8)]">
               </div>
