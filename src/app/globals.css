@@ -26,6 +26,7 @@ body {
 form {
   @apply bg-white;
   @apply text-black;
+  @apply p-6;
 }
 
 form>* {
