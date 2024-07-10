@@ -24,9 +24,6 @@ export default function NewApartment() {
     if (isNaN(price) || price <= 0) {
       errorMessage = "Price must be a number greater than 0"
     }
-    else {
-      console.log(parseFloat(price.value))
-    }
 
     const roomsInput = document.getElementById('rooms') as HTMLInputElement
     const rooms = parseInt(roomsInput.value.replace(/\s/g, ''))
@@ -42,8 +39,8 @@ export default function NewApartment() {
   }
 
   return (
-    <main>
-      <h1 className="text-3xl">New apartment</h1>
+    <main className="h-screen flex flex-col items-center">
+      <h1 className="text-3xl p-6">New apartment</h1>
       <form>
         <label htmlFor="name" >Name:</label>
         <input type="text" id="name" name="name" placeholder="Sunny apartment with heated floors" onChange={validateForm} />
