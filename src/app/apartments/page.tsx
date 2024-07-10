@@ -46,8 +46,8 @@ export default async function Apartments() {
             </div>
           </div>
         ))}
-        <div key={apartments.length} className="flex border-2 border-gray-200 rounded-xl overflow-hidden aspect-square items-center justify-center">
-          <Link href="/apartments/new">
+        <div key={apartments.length} className="border-2 border-gray-200 rounded-xl overflow-hidden aspect-square">
+          <Link className="flex w-full h-full items-center justify-center" href="/apartments/new">
             <div className="text-white text-center transform -translate-y-4">
               <h1 className="text-9xl">+</h1>
               <h1 className="text-xl">New listing</h1>
