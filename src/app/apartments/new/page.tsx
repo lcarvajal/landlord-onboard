@@ -46,7 +46,7 @@ export default function NewApartment() {
         <input type="text" id="name" name="name" placeholder="Sunny apartment with heated floors" onChange={validateForm} />
         <label htmlFor="location">Location:</label>
         <input type="text" id="location" name="location" placeholder="Stephansplatz 1 / 1" onChange={validateForm} />
-        <input className="text-gray-600" type="text" id="city" name="city" value="Vienna, AT" readonly="readonly" />
+        <input className="text-gray-600" type="text" id="city" name="city" value="Vienna, AT" readOnly={true} />
         <label htmlFor="price">Rent price per month in € Euros:</label>
         <input type="number" id="price" name="price" onChange={validateForm} />
         <label htmlFor="rooms">Number of rooms available to rent:</label>
