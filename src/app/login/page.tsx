@@ -7,19 +7,19 @@ export default function LoginPage() {
         <h1 className="text-black md:text-white text-3xl md:text-6xl w-4/5 mx-auto font-extrabold">Earn <span className="text-orange-500">50% more</span> renting your apt to students</h1>
       </div >
       <div className="grow flex md:items-center md:h-full md:w-4/5 lg:w-3/5 bg-white text-black p-6">
-        <form className="mx-auto text-lg">
-          <h1 className="text-xl mb-3 font-medium">List your apartment in 5 minutes</h1>
-          <ol className="mb-3 p-2">
+        <form className="mx-auto">
+          <h1 className="text-xl font-medium">List your apartment in 5 minutes</h1>
+          <ol className="p-2 mb-6">
             <li>1. List your Vienna, AT apartment</li>
             <li>2. Get requests from vetted students</li>
             <li>3. Sign a shared-flat rental agreement</li>
           </ol>
           <label htmlFor="email">Email:</label>
-          <input className="w-full block bg-gray-200 rounded-lg px-3 py-2 mb-3" id="email" name="email" type="email" required />
+          <input id="email" name="email" type="email" required />
           <label htmlFor="password">Password:</label>
-          <input className="w-full block bg-gray-200 rounded-lg px-3 py-2 mb-6" id="password" name="password" type="password" required />
-          <button className="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-3" formAction={signup}>Sign up</button>
-          <button className="w-full text-blue-500 hover:text-blue-700 font-bold" formAction={login}>Log in</button>
+          <input className="mb-6" id="password" name="password" type="password" required />
+          <button className="primary-button" formAction={signup}>Sign up</button>
+          <button className="subtle-button" formAction={login}>Log in</button>
         </form>
       </div>
     </main >
