@@ -6,7 +6,7 @@ import { revalidatePath } from 'next/cache'
 import { redirect } from 'next/navigation'
 
 export async function createApartment(formData: FormData) {
-  const supabase = createClient<Database>()
+  const supabase = createClient()
 
   const { data: authData, error: authError } = await supabase.auth.getUser()
   if (authError || !authData?.user) {

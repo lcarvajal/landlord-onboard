@@ -1,9 +1,9 @@
 import { Database } from '@/utils/supabase/database.types'
 import { createClient } from '@/utils/supabase/server'
-import { QueryResult, QueryData, QueryError } from '@supabase/supabase-js'
+import { QueryData } from '@supabase/supabase-js'
 
 export default async function Apartment({ params }: { params: { slug: string } }) {
-  const supabase = createClient<Database>()
+  const supabase = createClient()
 
   const apartmentQuery = supabase
     .from("apartments")

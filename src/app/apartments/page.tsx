@@ -5,7 +5,7 @@ import { QueryData } from '@supabase/supabase-js'
 import { redirect } from 'next/navigation'
 
 export default async function Apartments() {
-  const supabase = createClient<Database>()
+  const supabase = createClient()
 
   const { data: authData, error: authError } = await supabase.auth.getUser()
   if (authError || !authData?.user) {
