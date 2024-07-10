@@ -15,9 +15,25 @@ export default function LoginPage() {
             <li>3. Sign a shared-flat rental agreement</li>
           </ol>
           <label htmlFor="email">Email:</label>
-          <input id="email" name="email" type="email" required />
+          <input
+            id="email"
+            name="email"
+            type="email"
+            minLength={3}
+            pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
+            required
+          />
           <label htmlFor="password">Password:</label>
-          <input className="mb-6" id="password" name="password" type="password" required />
+          <input
+            className="mb-6"
+            id="password"
+            name="password"
+            type="password"
+            minLength={8}
+            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+            title="Please enter a password at least 8 characters long with at least one number, one uppercase and one lowercase letter"
+            required
+          />
           <button className="primary-button" formAction={signup}>Sign up</button>
           <button className="subtle-button" formAction={login}>Log in</button>
         </form>
