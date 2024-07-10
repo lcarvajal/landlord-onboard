@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import { Database } from '@/utils/supabase/database.types'
 import { createClient } from '@/utils/supabase/server'
 import { QueryData } from '@supabase/supabase-js'
 import { redirect } from 'next/navigation'
