@@ -23,6 +23,11 @@ body {
       rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
 }
 
+form {
+  @apply bg-white;
+  @apply text-black;
+}
+
 form>* {
   @apply block;
   @apply w-full;
