@@ -1,10 +1,16 @@
 import Link from 'next/link'
 import { Database } from '@/utils/supabase/database.types'
 import { createClient } from '@/utils/supabase/server'
-import { QueryResult, QueryData, QueryError } from '@supabase/supabase-js'
+import { QueryData } from '@supabase/supabase-js'
+import { redirect } from 'next/navigation'
 
 export default async function Apartments() {
   const supabase = createClient<Database>()
+
+  const { data: authData, error: authError } = await supabase.auth.getUser()
+  if (authError || !authData?.user) {
+    redirect('/login')
+  }
 
   const apartmentsQuery = supabase
     .from("apartments")
@@ -17,7 +23,8 @@ export default async function Apartments() {
       currency,
       description
         `
-    );
+    )
+    .eq('user_id', authData.user.id);
   type Apartments = QueryData<typeof apartmentsQuery>;
 
   const { data, error } = await apartmentsQuery;
