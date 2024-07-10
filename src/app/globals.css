@@ -53,6 +53,15 @@ form>input {
   @apply rounded;
 }
 
+.primary-button:disabled {
+  @apply bg-gray-200;
+  @apply text-gray-400;
+  @apply font-medium;
+  @apply py-2;
+  @apply px-4;
+  @apply rounded;
+}
+
 .subtle-button {
   @apply text-blue-500;
   @apply hover:text-blue-700;
