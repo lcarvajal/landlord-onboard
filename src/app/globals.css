@@ -18,12 +18,54 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
+  background: linear-gradient(to bottom,
       transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+      rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+}
+
+form {
+  @apply bg-white;
+  @apply text-black;
+  @apply p-6;
+}
+
+form>* {
+  @apply block;
+  @apply w-full;
+  @apply text-lg;
+  @apply mb-2;
+}
+
+form>input {
+  @apply bg-gray-200;
+  @apply rounded-lg;
+  @apply px-3;
+  @apply py-2;
+}
+
+.primary-button {
+  @apply bg-blue-500;
+  @apply hover:bg-blue-700;
+  @apply text-white;
+  @apply font-medium;
+  @apply py-2;
+  @apply px-4;
+  @apply rounded;
+}
+
+.primary-button:disabled {
+  @apply bg-gray-200;
+  @apply text-gray-400;
+  @apply font-medium;
+  @apply py-2;
+  @apply px-4;
+  @apply rounded;
+}
+
+.subtle-button {
+  @apply text-blue-500;
+  @apply hover:text-blue-700;
+  @apply font-medium;
 }
 
 @layer utilities {

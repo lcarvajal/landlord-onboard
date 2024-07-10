@@ -29,8 +29,8 @@ Run `npm run test`.
 
 ## Todo list
 
-- [ x ] Sign up / login
-- [ ] Apartments overview page
+- [x] Sign up / login
+- [x] Apartments overview page
 - [ ] Add apartment flow
 - [ ] Search / filter apartments
 
