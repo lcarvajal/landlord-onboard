@@ -1,17 +1,16 @@
 import { login, signup } from './actions'
-import Image from 'next/image'
 
 export default function LoginPage() {
   return (
-    <div className="flex flex-col md:flex-row h-screen w-screen items-center bg-white md:bg-[url('/student.jpg')] md:bg-no-repeat md:bg-cover md:bg-left-top">
-      <div className="md:grow text-center p-6 mt-6">
-        <h1 className="text-black md:text-white text-3xl md:text-6xl sm:w-4/5 mx-auto font-extrabold">Earn <span className="text-orange-500">50% more</span> renting your apt to students</h1>
-      </div>
-      <div className="grow flex md:items-center w-full md:h-full md:w-4/5 lg:w-3/5 bg-white text-black p-6">
-        <form className="mx-auto">
+    <main className="h-screen flex flex-col md:flex-row items-center bg-white md:bg-[url('/student.jpg')] bg-no-repeat bg-cover bg-left-top md:shadow-[inset_0_-10em_30em_0.8em_rgba(0,0,0,0.8)]">
+      <div className="md:grow text-center p-6 mt-6 md:mt-0 md:transform md:translate-y-6" >
+        <h1 className="text-black md:text-white text-3xl md:text-6xl w-4/5 mx-auto font-extrabold">Earn <span className="text-orange-500">50% more</span> renting your apt to students</h1>
+      </div >
+      <div className="grow flex md:items-center md:h-full md:w-4/5 lg:w-3/5 bg-white text-black p-6">
+        <form className="mx-auto text-lg">
           <h1 className="text-xl mb-3 font-medium">List your apartment in 5 minutes</h1>
           <ol className="mb-3 p-2">
-            <li>1. List your Vienna apartment</li>
+            <li>1. List your Vienna, AT apartment</li>
             <li>2. Get requests from vetted students</li>
             <li>3. Sign a shared-flat rental agreement</li>
           </ol>
@@ -23,6 +22,6 @@ export default function LoginPage() {
           <button className="w-full text-blue-500 hover:text-blue-700 font-bold" formAction={login}>Log in</button>
         </form>
       </div>
-    </div>
+    </main >
   )
 }
