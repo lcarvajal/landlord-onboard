@@ -24,10 +24,10 @@ export default function ApartmentsOverview(props: ApartmentsOverviewProps) {
 
   return (
     <>
-      <div className="w-full p-6 flex flex-col">
+      <div className="w-full p-6 flex flex-row justify-between">
         <h1 className="text-5xl font-medium">Your Listings</h1>
         {apartments.length > 0 && (
-          <form className="bg-black p-0 mt-6">
+          <form className="bg-black p-0">
             <input className="inline w-64 mr-3" type="text" onChange={handleSearch} placeholder='Filter listings by location' />
           </form>
         )}
