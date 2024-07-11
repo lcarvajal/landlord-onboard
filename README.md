@@ -31,6 +31,8 @@ Run `npm run test`.
 
 - [x] Sign up / login
 - [x] Apartments overview page
-- [ ] Add apartment flow
+- [x] Add apartment flow
+- [ ] Upload room images
+- [ ] Handle errors for image upload
 - [ ] Search / filter apartments
 
