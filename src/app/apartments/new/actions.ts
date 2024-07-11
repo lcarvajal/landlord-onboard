@@ -1,7 +1,6 @@
 'use server'
 
 import { createClient } from '@/utils/supabase/server'
-import { Database } from '@/utils/supabase/database.types'
 import { revalidatePath } from 'next/cache'
 import { redirect } from 'next/navigation'
 
