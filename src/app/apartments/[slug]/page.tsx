@@ -63,7 +63,7 @@ export default async function Apartment({ params }: { params: { slug: string } }
           }
         </div>
       </main>
-      <Bottombar formId="n/a" buttonTitle="Done" buttonAction={navigateHome} />
+      <Bottombar formId={null} buttonTitle="Done" buttonAction={navigateHome} />
     </>
   )
 }
