@@ -32,8 +32,8 @@ form {
 form>* {
   @apply block;
   @apply w-full;
-  @apply text-lg;
-  @apply mb-2;
+  @apply text-base;
+  @apply mb-1;
 }
 
 form>input {
