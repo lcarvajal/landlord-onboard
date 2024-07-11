@@ -45,7 +45,7 @@ export default async function Apartments() {
               <div className="text-overlay absolute left-0  top-0 bottom-0 right-0 shadow-[inset_0_0_4em_0.8em_rgba(0,0,0,0.8)]">
               </div>
               <div className="p-2 text-overlay absolute left-0 top-0 ">
-                <p className="bg-violet-800 px-2 text-white rounded-full">
+                <p className="bg-blue-600 px-2 text-white rounded-full">
                   {apartment.rooms.length === 1 ? '1 room' : `${apartment.rooms.length} rooms`}
                 </p>
               </div>
