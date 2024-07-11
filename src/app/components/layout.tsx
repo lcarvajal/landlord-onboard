@@ -28,7 +28,7 @@ interface BottombarProps {
 
 export function Bottombar(props: BottombarProps) {
   return (
-    <div className="w-full bg-white px-6 py-4 flex flex-col justify-center absolute bottom-0">
+    <div className="w-full bg-white px-6 py-4 flex flex-col justify-center mt-6">
       <div className="flex ml-auto">
         <Link href="/">
           <button className="primary-button" form={props.formId} formAction={props.buttonAction}>
