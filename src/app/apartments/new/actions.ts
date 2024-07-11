@@ -1,10 +1,11 @@
 'use server'
 
 import { createClient } from '@/utils/supabase/server'
-import { revalidatePath } from 'next/cache'
 import { redirect } from 'next/navigation'
 
-export async function createApartment(formData: FormData) {
+export async function createApartment(formData: FormData | null) {
+  if (!formData) return
+
   const supabase = createClient()
 
   const { data: authData, error: authError } = await supabase.auth.getUser()
@@ -43,6 +44,5 @@ export async function createApartment(formData: FormData) {
     }
   }
 
-  revalidatePath('/apartments', 'layout')
-  redirect('/apartments')
+  redirect(`/apartments/${insertApartmentData[0].id}`)
 }

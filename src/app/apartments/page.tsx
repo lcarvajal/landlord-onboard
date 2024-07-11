@@ -1,7 +1,14 @@
-import Link from 'next/link'
 import { createClient } from '@/utils/supabase/server'
 import { QueryData } from '@supabase/supabase-js'
 import { redirect } from 'next/navigation'
+import ApartmentsOverview from './apartments'
+import { Database } from '@/utils/supabase/database.types'
+
+type Apartment = Database['public']['Tables']['apartments']['Row'] & {
+  rooms: Database['public']['Tables']['rooms']['Row'][]
+};
+
+type Apartments = Apartment[];
 
 export default async function Apartments() {
   const supabase = createClient()
@@ -24,47 +31,17 @@ export default async function Apartments() {
       rooms: rooms(*)
         `
     )
+    .order('created_at', { referencedTable: 'rooms', ascending: true })
     .eq('user_id', authData.user.id);
   type Apartments = QueryData<typeof apartmentsQuery>;
 
   const { data, error } = await apartmentsQuery;
   if (error) throw error;
   console.log(data);
-  const apartments: Apartments = data;
 
   return (
-    <main className="container mx-auto flex flex-col items-center h-screen w-screen">
-      <div className="w-full p-6">
-        <h1 className="text-4xl font-medium">Your Listings</h1>
-      </div>
-      <div className="p-6 grow w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-        {apartments.map(apartment => (
-          <div key={apartment.id} className="image-container relative rounded-xl overflow-hidden aspect-square">
-            <Link href={`/apartments/${apartment.id}`}>
-              <img className="h-full w-full object-cover" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTObXdJytVLoBt-NHn1FQ0TmYolYopCq3hAJw&s" />
-              <div className="text-overlay absolute left-0  top-0 bottom-0 right-0 shadow-[inset_0_0_4em_0.8em_rgba(0,0,0,0.8)]">
-              </div>
-              <div className="p-2 text-overlay absolute left-0 top-0 ">
-                <p className="bg-blue-600 px-2 text-white rounded-full">
-                  {apartment.rooms.length === 1 ? '1 room' : `${apartment.rooms.length} rooms`}
-                </p>
-              </div>
-              <div className="p-2 absolute left-0 bottom-0 text-white">
-                <h1 className="text-xl">{apartment.location}</h1>
-                <p>Vienna, Austria</p>
-              </div>
-            </Link>
-          </div>
-        ))}
-        <div key={apartments.length} className="border-2 border-gray-200 rounded-xl overflow-hidden aspect-square">
-          <Link className="flex w-full h-full items-center justify-center" href="/apartments/new">
-            <div className="text-white text-center transform -translate-y-4">
-              <h1 className="text-9xl">+</h1>
-              <h1 className="text-xl">New listing</h1>
-            </div>
-          </Link>
-        </div>
-      </div>
+    <main className="container mx-auto flex flex-col grow items-center">
+      <ApartmentsOverview apartments={data as Apartment[]} />
     </main>
   );
 }

@@ -11,8 +11,8 @@ A website for landlords to upload apartments with rooms to rent.
 
 ## Setup
 
-1. `npm run dev`
-2. Create a `.env.local` file and set values
+1. Create a `.env.local` file and set values
+2. `npm run dev`
 
 ### Env file
 
@@ -32,7 +32,8 @@ Run `npm run test`.
 - [x] Sign up / login
 - [x] Apartments overview page
 - [x] Add apartment flow
-- [ ] Upload room images
-- [ ] Handle errors for image upload
-- [ ] Search / filter apartments
+- [x] Upload room images
+- [x] Search / filter apartments
+- [ ] Handle errors for form submission
+- [ ] Make apartments overview and edit rooms prettier
 

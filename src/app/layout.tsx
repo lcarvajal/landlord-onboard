@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
-import Navbar from "./components/layout";
+import { Navbar } from "./components/navigation";
 
 export const metadata: Metadata = {
   title: "Landlord Onboard",
@@ -15,7 +14,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="flex flex-col h-screen">
+      <body className="flex flex-col h-screen w-screen justify-between">
         <Navbar />
         {children}
       </body>
