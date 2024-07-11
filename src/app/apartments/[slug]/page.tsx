@@ -7,8 +7,8 @@ export default async function Apartment({ params }: { params: { slug: string } }
 
   return (
     <>
-      <main className="h-screen flex flex-col items-center p-12">
-        <div className="text-center mb-6">
+      <main className="h-screen flex flex-col items-center py-6 px-12">
+        <div className="text-center mb-3">
           <h1 className="text-3xl">{apartment.name}</h1>
           <h2 className="text-xl">{apartment.location}</h2>
         </div>
