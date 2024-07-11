@@ -35,7 +35,7 @@ export default async function Apartments() {
   const apartments: Apartments = data;
 
   return (
-    <main className="container mx-auto flex flex-col items-center h-screen w-screen">
+    <main className="container mx-auto flex flex-col grow items-center">
       <div className="w-full p-6">
         <h1 className="text-4xl font-medium">Your Listings</h1>
       </div>
