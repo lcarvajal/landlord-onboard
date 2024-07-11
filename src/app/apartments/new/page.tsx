@@ -1,10 +1,11 @@
+import { Bottombar } from '@/app/components/layout'
 import { createApartment } from './actions'
 
 export default function NewApartment() {
   return (
     <main className="h-screen flex flex-col items-center">
       <h1 className="text-3xl p-6">New apartment</h1>
-      <form>
+      <form id="new-apartment">
         <label htmlFor="name" >Name:</label>
         <input
           type="text"
@@ -48,8 +49,8 @@ export default function NewApartment() {
           required
           min={1}
         />
-        <button className="primary-button" formAction={createApartment}>Submit</button>
       </form>
+      <Bottombar formId="new-apartment" buttonTitle="Next" buttonAction={createApartment} />
     </main>
   )
 }
