@@ -1,4 +1,5 @@
-import { getApartment, updateRoom } from "./actions";
+import { Bottombar } from "@/app/components/layout";
+import { getApartment, updateRoom, navigateHome } from "./actions";
 
 export default async function Apartment({ params }: { params: { slug: string } }) {
   const apartment = await getApartment(params.slug);
@@ -14,7 +15,7 @@ export default async function Apartment({ params }: { params: { slug: string } }
           apartment.rooms.map((room, index) => (
             <div key={room.id}>
               <p>Room {index + 1}</p>
-              <form>
+              <form id={`room-${room.id}`}>
                 <input
                   type="hidden"
                   name="apartment_id"
@@ -57,6 +58,7 @@ export default async function Apartment({ params }: { params: { slug: string } }
           ))
         }
       </div>
+      <Bottombar formId="n/a" buttonTitle="Complete" buttonAction={navigateHome} />
     </main>
   )
 }

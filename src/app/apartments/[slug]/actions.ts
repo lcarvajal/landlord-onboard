@@ -54,3 +54,8 @@ export async function updateRoom(formData: FormData) {
   revalidatePath(`/apartments/${formData.get('apartment_id')}`, 'layout')
   redirect(`/apartments/${formData.get('apartment_id')}`)
 }
+
+export async function navigateHome() {
+  revalidatePath('/', 'layout')
+  redirect('/')
+}
