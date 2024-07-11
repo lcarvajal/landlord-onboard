@@ -38,12 +38,12 @@ export default function NewApartment() {
           required
           min={1}
         />
-        <label htmlFor="rooms">Number of rooms available to rent:</label>
+        <label htmlFor="numberOfRooms">Number of rooms available to rent:</label>
         <input
           className="mb-6"
           type="number"
-          id="rooms"
-          name="rooms"
+          id="numberOfRooms"
+          name="numberOfRooms"
           pattern="[0-9]"
           required
           min={1}
