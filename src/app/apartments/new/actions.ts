@@ -13,7 +13,7 @@ export async function createApartment(formData: FormData) {
     redirect('/login')
   }
 
-  const { data: insertData, error: insertError } = await supabase
+  const { data: insertApartmentData, error: insertApartmentError } = await supabase
     .from('apartments')
     .insert([{
       user_id: authData.user.id,
@@ -22,9 +22,26 @@ export async function createApartment(formData: FormData) {
     },])
     .select()
 
-  if (insertError) {
-    console.log(insertError)
+  if (insertApartmentError) {
+    console.log(insertApartmentError)
     redirect('/error')
+  }
+
+  const numberOfRoomsValue = formData.get('numberOfRooms') as string
+  const numberOfRooms = parseInt(numberOfRoomsValue)
+
+  for (let i = 0; i < numberOfRooms; i++) {
+    const { data: insertRoomData, error: insertRoomError } = await supabase
+      .from('rooms')
+      .insert([{
+        apartment_id: insertApartmentData[0].id,
+      },])
+      .select()
+
+    if (insertRoomError) {
+      console.log(insertRoomError)
+      redirect('/error')
+    }
   }
 
   revalidatePath('/apartments', 'layout')
