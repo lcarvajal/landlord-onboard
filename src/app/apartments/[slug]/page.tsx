@@ -1,30 +1,7 @@
-import { createClient } from '@/utils/supabase/server'
-import { QueryData } from '@supabase/supabase-js'
+import { getApartment, updateRoom } from "./actions";
 
 export default async function Apartment({ params }: { params: { slug: string } }) {
-  const supabase = createClient()
-
-  const apartmentQuery = supabase
-    .from("apartments")
-    .select(`
-      id,
-      created_at,
-      name,
-      location,
-      price,
-      currency,
-      description,
-      rooms: rooms(*)
-        `
-    )
-    .eq('id', params.slug)
-    .limit(1)
-    .single();
-  type Apartment = QueryData<typeof apartmentQuery>;
-
-  const { data, error } = await apartmentQuery;
-  if (error) throw error;
-  const apartment: Apartment = data;
+  const apartment = await getApartment(params.slug);
 
   return (
     <main className="h-screen flex flex-col items-center p-12">
@@ -38,26 +15,25 @@ export default async function Apartment({ params }: { params: { slug: string } }
             <div key={room.id}>
               <p>Room {index + 1}</p>
               <form>
+                <input
+                  type="hidden"
+                  name="room_id"
+                  value={room.id}
+                />
                 <label htmlFor="name">Room name:</label>
                 <input
                   type="text"
                   id="name"
                   name="name"
+                  value={room.name as string}
                   required
-                />
-                <label htmlFor="price">Rent price per month in € Euros:</label>
-                <input
-                  type="number"
-                  id="price"
-                  name="price"
-                  required
-                  min={1}
                 />
                 <label htmlFor="size">Size in square meters:</label>
                 <input
                   type="number"
                   id="size"
                   name="size"
+                  value={room.size as number}
                   min={1}
                   required
                 />
@@ -67,9 +43,10 @@ export default async function Apartment({ params }: { params: { slug: string } }
                   type="text"
                   id="equipment"
                   name="equipment"
+                  value={room.equipment as string}
                   required
                 />
-                <button className="primary-button">Update</button>
+                <button className="primary-button" formAction={updateRoom}>Update</button>
               </form>
             </div>
           ))
