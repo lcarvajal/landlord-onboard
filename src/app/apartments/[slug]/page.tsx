@@ -1,5 +1,6 @@
 import { Bottombar } from "@/app/components/layout";
 import { getApartment, updateRoom, navigateHome } from "./actions";
+import Image from "next/image";
 
 export default async function Apartment({ params }: { params: { slug: string } }) {
   const apartment = await getApartment(params.slug);
@@ -16,6 +17,7 @@ export default async function Apartment({ params }: { params: { slug: string } }
             <div key={room.id}>
               <p>Room {index + 1}</p>
               <form id={`room-${room.id}`}>
+                {room.image_url && <Image className="max-h-24 object-scale-down" src={`https://utmxzqgmamtmrrxbygqb.supabase.co/storage/v1/object/public/${room.image_url}`} alt={room.name ? room.name : "image of room"} width={200} height={200} />}
                 <input
                   type="hidden"
                   name="apartment_id"
@@ -52,6 +54,8 @@ export default async function Apartment({ params }: { params: { slug: string } }
                   value={room.equipment as string}
                   required
                 />
+                <label htmlFor="image">Image:</label>
+                <input type="file" name="image" id="image" accept="image/*" />
                 <button className="primary-button" formAction={updateRoom}>Update</button>
               </form>
             </div>

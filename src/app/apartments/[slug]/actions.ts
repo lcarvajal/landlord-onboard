@@ -38,6 +38,39 @@ export async function getApartment(id: string) {
 export async function updateRoom(formData: FormData) {
   const supabase = createClient()
 
+  const { data: authData, error: authError } = await supabase.auth.getUser()
+  if (authError || !authData?.user) {
+    redirect('/login')
+  }
+
+  const roomId = formData.get('room_id') as string
+
+  const imageFile = formData.get('image') as File
+  if (imageFile) {
+    console.log("image uploading!")
+
+    const { data: imageData, error: imageError } = await supabase
+      .storage
+      .from('room-images')
+      .upload(`private/${roomId}`, imageFile, {
+        cacheControl: '3600',
+        upsert: true
+      })
+
+    // FIX ME: - Handle error
+    if (imageError) throw imageError
+
+    const { error: updateRoomImageError } = await supabase
+      .from('rooms')
+      .update({
+        image_url: imageData.fullPath
+      })
+      .eq('id', roomId)
+
+    // FIX ME: - Handle error
+    if (updateRoomImageError) throw updateRoomImageError
+  }
+
   const { error: updateError } = await supabase
     .from('rooms')
     .update({
@@ -45,7 +78,7 @@ export async function updateRoom(formData: FormData) {
       equipment: formData.get('equipment') as string,
       size: parseInt(formData.get('size') as string)
     })
-    .eq('id', formData.get('room_id') as string)
+    .eq('id', roomId)
 
   // FIX ME: - Handle error
   console.log(updateError)
