@@ -36,8 +36,12 @@ export default async function Apartments() {
 
   return (
     <main className="container mx-auto flex flex-col grow items-center">
-      <div className="w-full p-6">
-        <h1 className="text-4xl font-medium">Your Listings</h1>
+      <div className="w-full p-6 flex flex-row justify-between">
+        <h1 className="text-5xl font-medium">Your Listings</h1>
+        <form className="bg-black p-0 mt-1">
+          <input className="inline w-64 mr-3" type="text" />
+          <button className="primary-button inline w-24">Search</button>
+        </form>
       </div>
       <div className="p-6 grow w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {apartments.map(apartment => (
