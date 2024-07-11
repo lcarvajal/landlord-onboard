@@ -17,6 +17,11 @@ export default async function Apartment({ params }: { params: { slug: string } }
               <form>
                 <input
                   type="hidden"
+                  name="apartment_id"
+                  value={apartment.id}
+                />
+                <input
+                  type="hidden"
                   name="room_id"
                   value={room.id}
                 />

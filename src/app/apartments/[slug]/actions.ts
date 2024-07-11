@@ -2,6 +2,8 @@
 
 import { createClient } from '@/utils/supabase/server'
 import { QueryData } from '@supabase/supabase-js'
+import { revalidatePath } from 'next/cache'
+import { redirect } from 'next/navigation'
 
 export async function getApartment(id: string) {
   const supabase = createClient()
@@ -41,10 +43,14 @@ export async function updateRoom(formData: FormData) {
     .update({
       name: formData.get('name') as string,
       equipment: formData.get('equipment') as string,
+      size: parseInt(formData.get('size') as string)
     })
     .eq('id', formData.get('room_id') as string)
 
   // FIX ME: - Handle error
   console.log(updateError)
   if (updateError) throw updateError;
+
+  revalidatePath(`/apartments/${formData.get('apartment_id')}`, 'layout')
+  redirect(`/apartments/${formData.get('apartment_id')}`)
 }
