@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { createClient } from '@/utils/supabase/server'
 import { QueryData } from '@supabase/supabase-js'
 import { redirect } from 'next/navigation'
+import Image from 'next/image'
 
 export default async function Apartments() {
   const supabase = createClient()
@@ -24,6 +25,7 @@ export default async function Apartments() {
       rooms: rooms(*)
         `
     )
+    .order('created_at', { referencedTable: 'rooms', ascending: true })
     .eq('user_id', authData.user.id);
   type Apartments = QueryData<typeof apartmentsQuery>;
 
@@ -41,7 +43,13 @@ export default async function Apartments() {
         {apartments.map(apartment => (
           <div key={apartment.id} className="image-container relative rounded-xl overflow-hidden aspect-square">
             <Link href={`/apartments/${apartment.id}`}>
-              <img className="h-full w-full object-cover" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTObXdJytVLoBt-NHn1FQ0TmYolYopCq3hAJw&s" />
+              {(apartment.rooms.length > 0 && apartment.rooms[0].image_url) ?
+                <Image className="h-full w-full object-cover" src={`https://utmxzqgmamtmrrxbygqb.supabase.co/storage/v1/object/public/${apartment.rooms[0].image_url}`} alt={apartment.rooms[0].name ? apartment.rooms[0].name : "apartment room"} width={200} height={200} />
+                :
+                <div className="h-full w-full object-cover bg-gray-400 flex items-center justify-center text-gray-800" >
+                  <p>Image missing</p>
+                </div>
+              }
               <div className="text-overlay absolute left-0  top-0 bottom-0 right-0 shadow-[inset_0_0_4em_0.8em_rgba(0,0,0,0.8)]">
               </div>
               <div className="p-2 text-overlay absolute left-0 top-0 ">
