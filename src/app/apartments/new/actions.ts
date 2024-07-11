@@ -43,6 +43,5 @@ export async function createApartment(formData: FormData) {
     }
   }
 
-  revalidatePath('/apartments', 'layout')
-  redirect('/apartments')
+  redirect(`/apartments/${insertApartmentData[0].id}`)
 }
