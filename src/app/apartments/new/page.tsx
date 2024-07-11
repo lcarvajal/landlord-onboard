@@ -1,4 +1,4 @@
-import { Bottombar } from '@/app/components/layout'
+import { Bottombar } from "@/app/components/navigation";
 import { createApartment } from './actions'
 
 export default function NewApartment() {
