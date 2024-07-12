@@ -40,3 +40,6 @@ Run `npm run test`.
 - [x] Make apartments overview and edit rooms prettier
 - [ ] Add log out button
 - [ ] Add tests for create apartment and edit rooms
+- [ ] Add zip codes
+- [ ] Allow apartment editing
+- [ ] Display price for rooms instead of apartments
