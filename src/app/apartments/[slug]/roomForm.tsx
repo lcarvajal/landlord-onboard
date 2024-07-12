@@ -21,11 +21,12 @@ export default function RoomForm(props: RoomFormProps) {
     setUpdateButtonTitle("Updating...");
     try {
       await updateRoom(formData);
+      setUpdateButtonTitle("Update");
     } catch (error: any) {
       setDidEdit(true);
+      setUpdateButtonTitle("Update");
       toast.error(error.message);
     }
-    setUpdateButtonTitle("Update");
   }
 
   function handleInputEdit() {
@@ -84,7 +85,7 @@ export default function RoomForm(props: RoomFormProps) {
         accept="image/*"
         onChange={handleInputEdit}
       />
-      {didEdit && <button className="primary-button" formAction={handleUpdateRoom}>Update</button>}
+      {didEdit && <button className="primary-button" formAction={handleUpdateRoom}>{updateButtonTitle}</button>}
     </form>
   )
 }
