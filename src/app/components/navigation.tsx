@@ -3,14 +3,8 @@ import Link from 'next/link';
 import React, { useState } from 'react';
 
 export function Navbar() {
-  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-
-  const handleDrawerToggle = () => {
-    setIsDrawerOpen(!isDrawerOpen);
-  };
-
   return (
-    <div className="bg-slate-800 text-white px-6 py-4 flex flex-col justify-center">
+    <div className="bg-zinc-800 text-white px-6 py-4 flex flex-col justify-center border-solid border-b-1 border-zinc-950">
       <div>
         <Link href="/">
           <p className="text-lg font-bold">Landlord Onboard</p>
@@ -45,7 +39,7 @@ export function Bottombar(props: BottombarProps) {
   };
 
   return (
-    <div className="w-full bg-white px-6 py-4 flex flex-col justify-center mt-6">
+    <div className="w-full bg-zinc-950  px-6 py-4 flex flex-col justify-center mt-6">
       <div className="flex ml-auto">
         <Link href="/">
           {

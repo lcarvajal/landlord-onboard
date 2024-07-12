@@ -22,10 +22,7 @@ export async function createApartment(formData: FormData | null) {
     },])
     .select()
 
-  if (insertApartmentError) {
-    console.log(insertApartmentError)
-    redirect('/error')
-  }
+  if (insertApartmentError) throw insertApartmentError
 
   const numberOfRoomsValue = formData.get('numberOfRooms') as string
   const numberOfRooms = parseInt(numberOfRoomsValue)
@@ -38,10 +35,7 @@ export async function createApartment(formData: FormData | null) {
       },])
       .select()
 
-    if (insertRoomError) {
-      console.log(insertRoomError)
-      redirect('/error')
-    }
+    if (insertRoomError) throw insertRoomError
   }
 
   redirect(`/apartments/${insertApartmentData[0].id}`)
