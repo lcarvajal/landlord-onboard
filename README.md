@@ -34,6 +34,7 @@ Run `npm run test`.
 - [x] Add apartment flow
 - [x] Upload room images
 - [x] Search / filter apartments
-- [ ] Handle errors for form submission
-- [ ] Make apartments overview and edit rooms prettier
-
+- [x] Handle errors for form submission
+- [x] Make apartments overview and edit rooms prettier
+- [ ] Add log out button
+- [ ] Add tests for create apartment and edit rooms
