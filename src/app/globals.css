@@ -18,15 +18,15 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+  @apply bg-zinc-900;
+  @apply text-white;
 }
 
 form {
-  @apply bg-white;
-  @apply text-black;
+  @apply bg-zinc-950;
+  @apply text-white;
   @apply p-6;
+  @apply rounded-xl;
 }
 
 form>* {
@@ -37,7 +37,7 @@ form>* {
 }
 
 form>input {
-  @apply bg-gray-200;
+  @apply bg-zinc-800;
   @apply rounded-lg;
   @apply px-3;
   @apply py-2;
