@@ -2,7 +2,12 @@
 
 # Landlord Onboard
 
-A website for landlords to upload apartments with rooms to rent.
+A website for landlords to upload apartments with rooms to rent to students.
+
+Users can:
+- Create an account
+- Create an apartment listing with x number of rooms
+- Upload an image and add information about each room available for rent.
 
 [Open Deployment on Vercel](https://landlord-onboard.vercel.app)
 
@@ -38,8 +43,8 @@ Run `npm run test`.
 - [x] Search / filter apartments
 - [x] Handle errors for form submission
 - [x] Make apartments overview and edit rooms prettier
-- [ ] Add log out button
-- [ ] Add tests for create apartment and edit rooms
-- [ ] Add zip codes
+- [ ] Edit profile with log out button
+- [ ] Tests for create apartment and edit rooms
+- [ ] Zip code and city for apartments
 - [ ] Allow apartment editing
 - [ ] Display price for rooms instead of apartments
