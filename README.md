@@ -1,3 +1,5 @@
+<img src="./public/screenshot.png" width=600>
+
 # Landlord Onboard
 
 A website for landlords to upload apartments with rooms to rent.
