@@ -1,7 +1,6 @@
 'use client'
 import { login, signup } from './actions'
 import toast, { Toaster } from "react-hot-toast";
-import { AuthError } from '@supabase/supabase-js';
 import { useState } from 'react';
 
 export default function LoginForm() {
@@ -12,7 +11,7 @@ export default function LoginForm() {
     setLoginButtonTitle('Logging in...');
     try {
       await login(formData);
-    } catch (error: AuthError | any) {
+    } catch (error: any) {
       setLoginButtonTitle('Log in');
       toast.error(error.message);
     }
@@ -22,7 +21,7 @@ export default function LoginForm() {
     setSignUpButtonTitle('Creating account...');
     try {
       await signup(formData);
-    } catch (error: AuthError | any) {
+    } catch (error: any) {
       setSignUpButtonTitle('Sign up');
       toast.error(error.message);
     }
