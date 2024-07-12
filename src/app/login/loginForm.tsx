@@ -2,20 +2,28 @@
 import { login, signup } from './actions'
 import toast, { Toaster } from "react-hot-toast";
 import { AuthError } from '@supabase/supabase-js';
+import { useState } from 'react';
 
 export default function LoginForm() {
+  const [signUpButtonTitle, setSignUpButtonTitle] = useState('Sign up');
+  const [loginButtonTitle, setLoginButtonTitle] = useState('Log in');
+
   async function handleLogin(formData: FormData) {
+    setLoginButtonTitle('Logging in...');
     try {
       await login(formData);
     } catch (error: AuthError | any) {
+      setLoginButtonTitle('Log in');
       toast.error(error.message);
     }
   }
 
   async function handleSignup(formData: FormData) {
+    setSignUpButtonTitle('Creating account...');
     try {
       await signup(formData);
     } catch (error: AuthError | any) {
+      setSignUpButtonTitle('Sign up');
       toast.error(error.message);
     }
   }
@@ -48,8 +56,8 @@ export default function LoginForm() {
         title="Please enter a password at least 8 characters long with at least one number, one uppercase and one lowercase letter"
         required
       />
-      <button className="primary-button" formAction={handleSignup}>Sign up</button>
-      <button className="subtle-button" formAction={handleLogin}>Log in</button>
+      <button className="primary-button" formAction={handleSignup}>{signUpButtonTitle}</button>
+      <button className="subtle-button" formAction={handleLogin}>{loginButtonTitle}</button>
     </form>
   )
 }
